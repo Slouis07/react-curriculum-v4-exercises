@@ -10,11 +10,12 @@
 
 import { useState } from 'react';
 export default function BugMutatedState() {
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   function handleAdd() {
-    count++;
-    setCount(count);
+    // count++;
+    // setCount(count);
+    setCount(count + 1);
   }
 
   return (
@@ -26,4 +27,5 @@ export default function BugMutatedState() {
 }
 
 // Explanation:
-// (Write your explanation here)
+// It had to be updated using the setter function instead of just changing count directly.
+//const should be used instead of let because state is suppose to be immutable.
