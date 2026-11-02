@@ -12,7 +12,11 @@ export default function Parent() {
     <div>
       <h2>Parent-Child Communication</h2>
       <p>Counter: {count}</p>
-      <Child />
+
+      <Child increment={increment} />
     </div>
   );
 }
+
+// Parent manages the counter and passes its increment function to Child.
+// This allows Child's button to update Parent's state.
