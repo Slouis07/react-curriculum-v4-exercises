@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import {
   useRenderCounter,
   RenderCounter,
@@ -89,7 +90,7 @@ function BookStats({ books }) {
     };
   };
 
-  const stats = calculateStats();
+  const stats = useMemo(() => calculateStats(), [books]);
 
   return (
     <div className={styles.statsContainer}>
@@ -132,4 +133,4 @@ function BookStats({ books }) {
   );
 }
 
-export default BookStats;
+export default memo(BookStats);
